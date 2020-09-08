@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript基礎 サンプル完成</title>
+  <style>
+    .title {
+      cursor: pointer;
+    }
+    .target {
+      height: 0;
+      /*visibility: hidden;*/
+      overflow: hidden;
+      transition: height .3s ease, opacity .5s ease;
+      opacity: 0;
+    }
+    .target.active {
+      height: inherit;
+      /*visibility: visible;*/
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="markdown-body">
+  <h1 class="ttl">Javascript基礎 サンプル完成</h1>
+  <ul>
+    <li>
+      <h2 class="title">タイトル1</h2>
+      <p class="target">テキスト1テキスト1テキスト1テキスト1テキスト1<br>
+        テキスト1テキスト1テキスト1テキスト1テキスト1
+      </p>
+    </li>
+    <li>
+      <h2 class="title">タイトル2</h2>
+      <p class="target">テキスト2テキスト2テキスト2テキスト2テキスト2<br>
+        テキスト2テキスト2テキスト2テキスト2テキスト2
+      </p>
+    </li>
+    <li>
+      <h2 class="title">タイトル3</h2>
+      <p class="target">テキスト3テキスト3テキスト3テキスト3テキスト3<br>
+        テキスト3テキスト3テキスト3テキスト3テキスト3
+      </p>
+    </li>
+    <li>
+      <h2 class="title">タイトル4</h2>
+      <p class="target">テキスト4テキスト4テキスト4テキスト4テキスト4<br>
+        テキスト4テキスト4テキスト4テキスト4テキスト4
+      </p>
+    </li>
+  </ul>
+  <script>
+    // タイトル全て取得
+    var titles = document.querySelectorAll('.title');
+    // タイトル全ての個数を変数に入れる
+    var titleLenght = titles.length;
+    // タイトルの個数分for文で繰り返し処理
+    for(var i = 0; i < titleLenght; i++){
+      titles[i].addEventListener('click', toggleTarget, false);
+    }
+    // ターゲットの表示・非表示処理
+    function toggleTarget(event){
+      var elem = event.currentTarget;
+      console.log(this);
+      var target = elem.parentNode.querySelector(".target");
+      var targetHeight = target.scrollHeight;
+      if(target.className.match(/active/)){
+        target.style.height = 0;
+        target.className = 'target';
+      }else{
+        target.style.height = targetHeight+'px';
+        target.className = 'target active';
+      }
+    }
+  </script>
+</body>
+</html>

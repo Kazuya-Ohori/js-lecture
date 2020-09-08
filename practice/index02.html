@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript基礎 2</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/languages/htmlbars.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/vs.min.css">
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="markdown-body">
+  <h1 id="main-title" class="ttl">Javascript基礎 2</h1>
+  <ul>
+    <li>
+      <h2><a href="index.html">Javascript基礎 1</a></h2>
+    </li>
+    <li>
+      <h2><a href="sample01.html" target="_blank">サンプル１</a></h2>
+    </li>
+    <li>
+      <h2><a href="sample02.html" target="_blank">サンプル２（完成形）</a></h2>
+    </li>
+    <li>
+      <h2>配列 - Array -</h2>
+      <p>順序をつけて格納した値。箱(変数名)に仕切りを作って物（値）を入れるイメージ。<br>配列に格納したそれぞれの値のことを要素、それぞれの要素の位置のことをインデックス（index）と呼ぶ。<br>インデックスは先頭の要素から<strong>0、1、2のように0からはじまる</strong>連番となる。<br>※プログラムの世界では1からではなく0から始まる点に注意。</p>
+      <div>
+        <div><img src="img/benkyoukai2.png" alt=""></div>
+        <pre>
+  <code class="javscript">
+  var box = ["banana","apple","peach"];
+  console.log(box);
+  // 変数名[index]で要素を取り出せる。
+  console.log(box[0]); // => banana
+  // 要素の再代入や追加も可能
+  box[0] = "grape";
+  console.log(box); // => ["grape","apple","peach"]
+  // 配列の3番目（0から数えるので実際は4番目）に要素を追加
+  box[3] = "orange";
+  console.log(box); // => ["grape","apple","peach","orange"]
+  </code>
+        </pre>
+      </div>
+    </li>
+    <li>
+      <h2>オブジェクト - object - </h2>
+      <p>関連のあるデータと機能の集合。機能はたいていは変数と関数で構成されており、
+        <br>オブジェクトの中ではそれぞれプロパティとメソッドと呼ぶ。<br>オブジェクトを作成するには、{}を利用する。</p>
+      <div>
+        <div><img src="img/benkyoukai3.png" alt=""></div>
+        <p>プロパティにアクセスする方法は２種類で、
+          <br>「変数名.プロパティ名」とドットでつなげるドット記法と
+          <br>「変数名["プロパティ名"]」で書くブラケット記法がある。<br>通常はドット記法で書く方が多い。用途によってブラケットを使う場合がある。</p>
+        <pre>
+          <code>
+  // 変数の値に{}を入れることでプロパティを持たない空のオブジェクトを作成
+  var obj = {};
+  // プロパティを持つオブジェクトを定義する
+  var obj = {
+    // キー: 値
+    "key": "value"
+  };
+  // 値を取り出す ドット記法
+  console.log(obj.key); // => value
+  // 値を取り出す ブラケット記法
+  console.log(obj["key"]); // => value
+
+  // プロパティをセット
+  obj.title = "javascript";
+  // プロパティをセット
+  obj["title"] = "javascript";
+
+  /**
+   *  ドット記法の場合プロパティ名が数字から始まる識別子は利用できない
+   *  変数名と同じく識別子の命名規則を満たす必要がある。
+   */
+  obj.123; // error
+          </code>
+        </pre>
+        <h3>メソッド</h3>
+        <p>メソッドとはあるオブジェクトに結びつけられた関数のこと。<br>
+          プロパティの値がfunctionになったイメージ。</p>
+        <pre>
+          <code>
+  var obj = {
+    title: "test", // プロパティ
+    func: function(){ // メソッド
+      console.log(this.title);
+    }
+  };
+
+  // ドット記法でのメソッド呼び出し
+  obj.func();
+  // ブラケット記法でのメソッド呼び出し
+  obj["func"];
+          </code>
+        </pre>
+      </div>
+    </li>
+    <li>
+      <h2>DOM - Document Object Model -</h2>
+      <p>ブラウザがWebページを解釈したもの。<br>デバッグツールのElementsタブで表示されているのがDOM。</p>
+      <div>
+        <h3>DOM ツリー</h3>
+        <p>HTMLのタグが描画の段階でオブジェクトとして解釈されツリー状に表現される。<br>それぞれのオブジェクトにはプロパティやメソッドが用意されている。 <br>ツリーとしての表現が一般的なので、「DOMツリー」が単に「DOM」と略して呼ばれている。</p>
+        <div><img src="img/dom_tree.jpg" alt=""></div>
+        <h3>DOM API</h3>
+        <p>JavaScriptからDOMにアクセスし、その内容やプロパティを操作する仕組み。</p>
+        <pre>
+          <code class="javascript">
+  // DOMオブジェクトのbgColorプロパティを書き換える
+  window.document.body.bgColor = "#00ff00"; // => bodyにスタイルが当たり緑に
+  // DOMオブジェクトのCSSプロパティのbackgroundColorプロパティを書き換える
+  window.document.body.style.backgroundColor = "#00ff00"; // => bodyにスタイルが当たり緑に
+  // windowは省略できる
+  document.body.style.backgroundColor = "#00ff00"; // => bodyにスタイルが当たり緑に
+          </code>
+        </pre>
+        <h3>DOM メソッド</h3>
+        <p>DOMに関連づけられた関数。</p>
+        <h4>よく使うメソッド</h4>
+        <pre>
+          <code class="javascript">
+  /**
+   * DOM要素を取得する系
+   */
+  // 特定のID名の要素を取得
+  document.getElementById("id名");
+  // 指定した要素名の全ての要素を取得。※動的に増やした要素も取得できる。
+  document.getElementsByTagName("タグ名");
+  // id属性値・class属性値関係なくCSSのセレクターで要素を取得。最初の1つを取得
+  document.querySelector("class名とかid名とかタグ名");
+  // id属性値・class属性値関係なくCSSのセレクターで要素を取得。要素全てを取得。※動的に増やした要素は取得できない。
+  document.querySelectorAll("class名とかid名とかタグ名");
+  /**
+   * DOM要素を追加・削除系
+   */
+  // 要素を末尾に追加
+  document.body.appendChild("DOM要素");
+  // 要素を削除
+  document.body.removeChild("DOM要素");
+          </code>
+        </pre>
+        <h3>DOM イベント</h3>
+        <p>「ページの読み込み」「マウスでボタンをクリック」「キーボードのキーを押す」など、<br>Webページに対する動作や操作のことをイベントと呼ぶ。<br>
+          JavaScriptではこのようなイベントを監視し、実際にイベントが発生した際に特定の処理を命令することができる。<br>監視するにはどの要素に対してどのイベントを監視するか登録する必要がある。<br>
+          登録の仕方には、HTML4.01などで定義されているシンプルでHTMLと直に結びついた古い方法とDOM Level 2 Eventsで定義された高機能で抽象化された新しい方法と大きく2つの方法がある。
+        </p>
+        <h4>古い書き方 - onEvent - </h4>
+        <p>ある要素のあるアクションに対して1つの処理しか登録できない。</p>
+        <pre>
+          <code class="javascript">
+  // windowのonclickメソッドに直接登録するパターン
+  window.onclick = function(){
+    console.log('has clicked!!!');
+  }
+          </code>
+          <code class="html">
+  &lt;!-- htmlタグに直接埋め込むパターン --&gt;
+  &lt;body onclick="console.log('body has clicked!!!');"&gt;
+          </code>
+          <code class="javascript">
+  // こちらの内容に書き変わってしまう。
+  window.onclick = function(){
+    console.log('aaa has clicked!!!');
+  }
+          </code>
+        </pre>
+        <h4>新しい書き方 - addEventListener - </h4>
+        <p>ある要素のあるアクションに対して複数の処理を登録できる。<br>IE9以前では使えなかったが現在ではほぼ全部のブラウザで使用できるので普通はこちらを使う。
+          <br><a href="https://caniuse.com/addeventlistener" target="_blank">https://caniuse.com/addeventlistener</a></p>
+        <pre>
+          <code class="javascript">
+  // addEventLister("イベントのtype", 関数, オプション:今回は割愛);
+  window.addEventListener("click", function(){
+    console.log('has clicked!!!');
+  });
+  // 同じ要素とイベントに複数登録できる。
+  window.addEventListener("click", function(){
+    console.log('body has clicked!!!');
+  });
+          </code>
+        </pre>
+      </div>
+    </li>
+    <li>
+      <h2>繰り返し（反復）処理 - loops -</h2>
+      <p>ループは繰り返し何かを実行するための簡便な方法。
+        <br>同じ処理を繰り返すために同じコードを繰り返し書く事を避けられる（※DRYなコードが書ける）。
+        <br>※DRY - Don`t Repeat Yourself - プログラミングにおける思想で、「無駄な重複をなくしましょう」という考え。</p>
+      <div>
+        <h3>while文</h3>
+        <p>while文は条件式がtrueであるならば、反復処理を行います。</p>
+        <pre>
+          <code class="javascript">
+  while (条件式) {
+    実行する文;
+  }
+  // numが10になるまで処理を繰り返す。
+  var num = 0;
+  while(num < 10) {
+    console.log(num);
+    num += 1; // num = num + 1; 処理のたびにnumに1を足していく。
+  }
+          </code>
+        </pre>
+        <h3>do-while文</h3>
+        <p>do-while文はwhile文とほとんど同じだが、実行順序が異なり、まずdo{}の中身を実行し、<br>while (条件式)がtrueなら次のステップへ、falseなら終了する。</p>
+        <pre>
+          <code class="javascript">
+  var num = 1000;
+  do {
+    console.log(num); // => 1000
+  } while (num < 10); // この条件式はfalseなので1回で終了
+          </code>
+        </pre>
+        <h3>for文</h3>
+        <p>for文は繰り返す範囲を指定した反復処理を書くことができる。</p>
+        <pre>
+          <code class="javascript">
+  for (初期化式; 条件式; 増分式) {
+    実行する文;
+  }
+  // ()の中で変数宣言と条件式と加算代入式を同時に設定している。
+  for(var i = 0; i < 10; i++){ // i++ はi+=1と同じ
+    console.log(i);
+  }
+          </code>
+        </pre>
+        <h3>forEachメソッド</h3>
+        <p>配列にはforEachメソッドというfor文と同じように反復処理を行うメソッドがあり、
+          <br>配列の個数文反復処理が出来る。</p>
+        <pre>
+          <code class="javascript">
+  var box = ['banana','apple','peach'];
+  box.forEach(function(item){
+    console.log(item);
+  });
+          </code>
+        </pre>
+      </div>
+    </li>
+  </ul>
+</body>
+</html>

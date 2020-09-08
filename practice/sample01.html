@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript基礎 サンプル</title>
+</head>
+<body class="markdown-body">
+  <h1 class="ttl">Javascript基礎 サンプル</h1>
+  <ul>
+    <li>
+      <h2 id="title1">タイトル1</h2>
+      <p id="paragraph1">テキスト1テキスト1テキスト1テキスト1テキスト1<br>
+        テキスト1テキスト1テキスト1テキスト1テキスト1
+      </p>
+    </li>
+    <li>
+      <h2>タイトル2</h2>
+      <p>テキスト2テキスト2テキスト2テキスト2テキスト2<br>
+        テキスト2テキスト2テキスト2テキスト2テキスト2
+      </p>
+    </li>
+  </ul>
+  <script>
+    // どの要素に対してどのようなを変更するのか
+    document.getElementById("paragraph1").style.height = 0;
+    document.getElementById("paragraph1").style.opacity = 0;
+    // どの要素に対してどのようなアクションをした時に実行するのか
+    document.getElementById("title1").addEventListener("click", function(event){
+      // console.log(event.currentTarget);
+      console.log(event.currentTarget.innerText+"がクリックされました。");
+      document.getElementById("paragraph1").style.height = '80px';
+      document.getElementById("paragraph1").style.opacity = 1;
+    }, false);
+  </script>
+</body>
+</html>
