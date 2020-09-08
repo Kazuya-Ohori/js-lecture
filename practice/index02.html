@@ -178,10 +178,50 @@
   });
   // 同じ要素とイベントに複数登録できる。
   window.addEventListener("click", function(){
-    console.log('body has clicked!!!');
+    console.log('window has clicked!!!');
   });
           </code>
         </pre>
+        <h4>よく使うイベントのtype</h4>
+        <table class="standard-table">
+         <thead>
+          <tr>
+           <th scope="col">イベント名</th>
+           <th scope="col">いつ発生するか</th>
+          </tr>
+         </thead>
+        <tbody>
+          <tr>
+           <td>click</td>
+           <td>クリックした時</td>
+          </tr>
+          <tr>
+            <td>resize</td>
+            <td>ウィンドウがリサイズされた時</td>
+          </tr>
+          <tr>
+            <td>scroll</td>
+            <td>画面がスクロールされた時</td>
+          </tr>
+          <tr>
+            <td>focus</td>
+            <td>要素がフォーカスされた時</td>
+          </tr>
+          <tr>
+            <td>blur</td>
+            <td>要素がフォーカスを失った時</td>
+          </tr>
+          <tr>
+            <td>change</td>
+            <td>&lt;input&gt;、&lt;select&gt;、および&lt;textarea&gt;要素の値が変更された時</td>
+          </tr>
+          <tr>
+           <td>submit</td>
+           <td>サブミットボタンが押された時</td>
+          </tr>
+        </tbody>
+        </table>
+        <p><a href="https://developer.mozilla.org/ja/docs/Web/Events" target="_blank">MDN イベントリファレンス</a></p>
       </div>
     </li>
     <li>
