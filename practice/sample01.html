@@ -3,34 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <title>Javascript基礎 サンプル</title>
+  <style>
+    .title {
+      cursor: pointer;
+    }
+    .paragraph {
+      overflow: hidden;
+      opacity: 0;
+      height: 0;
+      transition: all .2s ease;
+    }
+  </style>
 </head>
 <body class="markdown-body">
   <h1 class="ttl">Javascript基礎 サンプル</h1>
   <ul>
     <li>
-      <h2 id="title1">タイトル1</h2>
-      <p id="paragraph1">テキスト1テキスト1テキスト1テキスト1テキスト1<br>
+      <h2 class="title" id="title1">タイトル1</h2>
+      <p class="paragraph" id="paragrap1">テキスト1テキスト1テキスト1テキスト1テキスト1<br>
         テキスト1テキスト1テキスト1テキスト1テキスト1
       </p>
     </li>
     <li>
-      <h2>タイトル2</h2>
-      <p>テキスト2テキスト2テキスト2テキスト2テキスト2<br>
+      <h2 class="title" id="title2">タイトル2</h2>
+      <p class="paragraph" id="paragrap2">テキスト2テキスト2テキスト2テキスト2テキスト2<br>
         テキスト2テキスト2テキスト2テキスト2テキスト2
       </p>
     </li>
   </ul>
   <script>
     // どの要素に対してどのようなを変更するのか
-    document.getElementById("paragraph1").style.height = 0;
-    document.getElementById("paragraph1").style.opacity = 0;
-    // どの要素に対してどのようなアクションをした時に実行するのか
-    document.getElementById("title1").addEventListener("click", function(event){
-      // console.log(event.currentTarget);
-      console.log(event.currentTarget.innerText+"がクリックされました。");
-      document.getElementById("paragraph1").style.height = '80px';
-      document.getElementById("paragraph1").style.opacity = 1;
-    }, false);
+    var paragrap1 = document.getElementById('paragrap1');
+    paragrap1.style.height = 0;
+    paragrap1.style.opacity = 0;
+    var title = document.getElementById("title1");
+
+    var toggle = function(event){
+      var elem = event.currentTarget;
+      var target = elem.nextElementSibling;
+      if(target.offsetHeight == 0){
+        target.style.height = '80px';
+        target.style.opacity = 1;
+      } else {
+        target.style.height = 0;
+        target.style.opacity = 0;
+      }
+
+    }
+
+    title.addEventListener("click", toggle);
+
+    var paragrap2 = document.getElementById('paragrap2');
+    paragrap2.style.height = 0;
+    paragrap2.style.opacity = 0;
+    var title2 = document.getElementById("title2");
+    title2.addEventListener("click", toggle);
+
+    // document.getElementById("paragraph1").style.opacity = 0;
+    // 同じ要素に対して変更をしているので、要素は変数にいれてしまう。
+
+    // function toggleParagraph(event){
+    //   // console.log(event.currentTarget);
+    //   console.log(event.currentTarget.innerText+"がクリックされました。");
+    //   var target = event.currentTarget.nextElementSibling;
+    //   var targetHeight = target.scrollHeight;
+    //   // document.getElementById("paragraph1").style.height = '80px';
+    //   // document.getElementById("paragraph1").style.opacity = 1;
+    //   if(target.offsetHeight == 0){
+    //     target.style.height = targetHeight+'px';
+    //     target.style.opacity = 1;
+    //   }else{
+    //     target.style.height = 0;
+    //     target.style.opacity = 0;
+    //   }
+    // }
+    // // どの要素に対してどのようなアクションをした時に実行するのか
+    // // document.getElementById("title1").addEventListener("click", toggleParagraph, false);
+    // // document.getElementById("title2").addEventListener("click", toggleParagraph, false);
+    // var titles = document.querySelectorAll(".title");
+    // titles.forEach( function(element) {
+    //   // statements
+    //   element.addEventListener("click", toggleParagraph, false);
+    // });
   </script>
 </body>
 </html>
