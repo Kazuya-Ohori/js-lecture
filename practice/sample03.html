@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript基礎 アコーディオンサンプル３（ループを使って描画）</title>
+  <style>
+    .title {
+      cursor: pointer;
+    }
+    .target {
+      height: 0;
+      /*visibility: hidden;*/
+      overflow: hidden;
+      transition: height .3s ease, opacity .5s ease;
+      opacity: 0;
+    }
+    .target.active {
+      height: inherit;
+      /*visibility: visible;*/
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="markdown-body">
+  <h1 class="ttl">Javascript基礎 アコーディオンサンプル３（ループを使って描画）</h1>
+  <p><a href="index.html">＜ 目次に戻る</a></p>
+  <main id="main"></main>
+  <!-- <ul>
+    <li>
+      <h2 class="title">タイトル1</h2>
+      <p class="target">テキスト1テキスト1テキスト1テキスト1テキスト1<br>
+        テキスト1テキスト1テキスト1テキスト1テキスト1
+      </p>
+    </li>
+    <li>
+      <h2 class="title">タイトル2</h2>
+      <p class="target">テキスト2テキスト2テキスト2テキスト2テキスト2<br>
+        テキスト2テキスト2テキスト2テキスト2テキスト2
+      </p>
+    </li>
+    <li>
+      <h2 class="title">タイトル3</h2>
+      <p class="target">テキスト3テキスト3テキスト3テキスト3テキスト3<br>
+        テキスト3テキスト3テキスト3テキスト3テキスト3
+      </p>
+    </li>
+    <li>
+      <h2 class="title">タイトル4</h2>
+      <p class="target">テキスト4テキスト4テキスト4テキスト4テキスト4<br>
+        テキスト4テキスト4テキスト4テキスト4テキスト4
+      </p>
+    </li>
+  </ul> -->
+  <script>
+
+    'use strict';
+
+    // データ
+    var data = [
+      {
+        title: 'タイトル1',
+        text: 'テキスト1テキスト1テキスト1テキスト1テキスト1<br>テキスト1テキスト1テキスト1テキスト1テキスト1'
+      },
+      {
+        title: 'タイトル2',
+        text: 'テキスト2テキスト2テキスト2テキスト2テキスト2<br>テキスト2テキスト2テキスト2テキスト2テキスト2'
+      },
+      {
+        title: 'タイトル3',
+        text: 'テキスト3テキスト3テキスト3テキスト3テキスト3<br>テキスト3テキスト3テキスト3テキスト3テキスト3'
+      },
+      {
+        title: 'タイトル4',
+        text: 'テキスト4テキスト4テキスト4テキスト4テキスト4<br>テキスト4テキスト4テキスト4テキスト4テキスト4'
+      }
+    ]
+    /**
+     * データを描画
+     */
+    // 挿入する対象を格納
+    var main = document.getElementById('main');
+    // ulタグを作る
+    var list = document.createElement('ul');
+    // ループ処理でデータの数だけliタグを作っていく
+    data.forEach( function(element, index) {
+      //  liタグを作る
+      var listItem = document.createElement('li');
+      //  h2タグを作る
+      var title = document.createElement('h2');
+      //  h2タグのクラス設定
+      title.className = 'title';
+      //  h2タグにデータ内のtitleの値をいれる
+      title.innerHTML = element.title;
+      //  pタグをつくる
+      var text = document.createElement('p');
+      //  pタグにデータ内のtextの値をいれる
+      text.innerHTML = element.text;
+      //  pタグのクラスを設定
+      text.className = 'target';
+      //  liタグにh2タグ挿入
+      listItem.appendChild(title);
+      //  liタグにpタグ挿入
+      listItem.appendChild(text);
+      //  ulタグにliタグ挿入
+      list.appendChild(listItem);
+    });
+    // mainタグにulタグ挿入
+    main.appendChild(list);
+    /**
+     * ここからアコーディオン処理
+     */
+    // タイトル全て取得
+    var titles = document.querySelectorAll('.title');
+    // タイトル全ての個数を変数に入れる
+    var titleLenght = titles.length;
+    // タイトルの個数分for文で繰り返し処理
+    for(var i = 0; i < titleLenght; i++){
+      titles[i].addEventListener('click', toggleTarget, false);
+    }
+    // ターゲットの表示・非表示処理
+    function toggleTarget(event){
+      var elem = event.currentTarget;
+      var target = elem.parentNode.querySelector(".target");
+      var targetHeight = target.scrollHeight;
+      if(target.className.match(/active/)){
+        target.style.height = 0;
+        target.className = 'target';
+      }else{
+        target.style.height = targetHeight+'px';
+        target.className = 'target active';
+      }
+    }
+  </script>
+</body>
+</html>

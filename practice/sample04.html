@@ -2,7 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Javascript基礎 アコーディオンサンプル２</title>
+  <title>Javascript基礎 アコーディオンサンプル４（jQuery Ver）</title>
+  <script src="js/jquery.js"></script>
   <style>
     .title {
       cursor: pointer;
@@ -22,7 +23,7 @@
   </style>
 </head>
 <body class="markdown-body">
-  <h1 class="ttl">Javascript基礎 アコーディオンサンプル２</h1>
+  <h1 class="ttl">Javascript基礎 アコーディオンサンプル４（jQuery Ver）</h1>
   <p><a href="index.html">＜ 目次に戻る</a></p>
   <ul>
     <li>
@@ -52,25 +53,33 @@
   </ul>
   <script>
     // タイトル全て取得
-    var titles = document.querySelectorAll('.title');
+    var $titles = $('.title');
     // タイトル全ての個数を変数に入れる
     var titleLenght = titles.length;
     // タイトルの個数分for文で繰り返し処理
-    for(var i = 0; i < titleLenght; i++){
-      titles[i].addEventListener('click', toggleTarget, false);
-    }
+    // for(var i = 0; i < titleLenght; i++){
+    //   titles[i].addEventListener('click', toggleTarget, false);
+    // }
+    titles.click(toggleTarget);
     // ターゲットの表示・非表示処理
-    function toggleTarget(event){
-      var elem = event.currentTarget;
-      console.log(this);
-      var target = elem.parentNode.querySelector(".target");
-      var targetHeight = target.scrollHeight;
-      if(target.className.match(/active/)){
-        target.style.height = 0;
-        target.className = 'target';
+    function toggleTarget(){
+      // var elem = event.currentTarget;
+      var elem = $(this);
+      // var target = elem.parentNode.querySelector(".target");
+      var target = elem.next(".target");
+      // var targetHeight = target.scrollHeight;
+      var targetHeight = target[0].scrollHeight;
+      // if(target.className.match(/active/)){
+      if(target.hasClass('active')){
+        // target.style.height = 0;
+        target.height(0);
+        // target.removeClass('active');
+        target.removeClass('active');
       }else{
-        target.style.height = targetHeight+'px';
-        target.className = 'target active';
+        // target.style.height = targetHeight+'px';
+        target.height(targetHeight);
+        // target.className = 'target active';
+        target.addClass('active');
       }
     }
   </script>

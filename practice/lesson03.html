@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript基礎 3 ECMAScript</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/languages/htmlbars.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/vs.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="markdown-body">
+  <h1 id="main-title" class="ttl">Javascript基礎 3</h1>
+  <p><a href="index.html">＜ 目次に戻る</a></p>
+  <ul>
+    <li>
+      <h2>ECMAScript</h2>
+      <p>もともとJavaScriptはNetscape社のブラウザで使われる言語として誕生した。<br>
+      他のブラウザでの使用は想定されておらず、各ブラウザはJavaScriptを独自に拡張していた。<br>
+      JavaScriptはまったく標準化がされていない言語だった。
+    </p>
+    <p>
+      その結果いろいろと問題が発生したため（ブラウザ毎で動作したりしなかったり、予期しない動作をしたり。）、<br>
+      Netscape社は国際標準化団体の<a href="http://www.ecma-international.org/" target="_blank">ECMA International</a>※に依頼し、JavaScriptのコア部分を標準化した。<br>
+      これをECMAScriptと呼ぶ。<br>
+      JavaScriptはECMAscriptに準拠した言語。
+    </p>
+    <p><span style="font-size: 14px;color: #333;">※Ecma InternationalはECMAScript以外にもC#やDartなどの標準化もしている。</span> </p>
+    </li>
+    <li>
+      <h2>バージョンの表記について</h2>
+      <p>ほぼ全部のブラウザで動くのがES5で今までと同じ書き方。<br> いま標準になっているのがES6で新しい機能や書き方。
+        <br>2015年以降は毎年新バージョンがリリースされ、<br>年号をバージョン名としている。</p>
+      <div>
+        <table id="tablepress-785" class="tablepress tablepress-id-785">
+          <thead>
+            <tr class="row-1 odd">
+              <th class="column-1">バージョン</th>
+              <th class="column-2">公開日</th>
+            </tr>
+          </thead>
+          <tbody class="row-hover">
+            <tr class="row-2 even">
+              <td class="column-1">ECMAScript1</td>
+              <td class="column-2">1997年6月</td>
+            </tr>
+            <tr class="row-3 odd">
+              <td class="column-1">ECMAScript2</td>
+              <td class="column-2">1998年6月</td>
+            </tr>
+            <tr class="row-4 even">
+              <td class="column-1">ECMAScript3</td>
+              <td class="column-2">1999年12月</td>
+            </tr>
+            <tr class="row-5 odd">
+              <td class="column-1">ECMAScript4</td>
+              <td class="column-2">破棄</td>
+            </tr>
+            <tr class="row-6 even">
+              <td class="column-1">ECMAScript5</td>
+              <td class="column-2">2009年12月</td>
+            </tr>
+            <tr class="row-7 odd">
+              <td class="column-1">ECMAScript5.1</td>
+              <td class="column-2">2011年6月</td>
+            </tr>
+            <tr class="row-8 even">
+              <td class="column-1">ECMAScript2015(ES6とも呼ばれてる)</td>
+              <td class="column-2">2015年6月</td>
+            </tr>
+            <tr class="row-9 odd">
+              <td class="column-1">ECMAScript2016</td>
+              <td class="column-2">2016年6月</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>
+      <h2>ES5とES2015(ES6)のバージョンでの違い</h2>
+      <p>ES2015ではより書きやすく便利な文法が追加されたり、<br>便利な標準ライブラリが追加されたりしている。</p>
+      <div>
+        <h3>let/constによる変数/定数の宣言</h3>
+        <p>ES5での変数宣言はvar一つでだったが、<br>
+          ES2015から変数の中身が変わるものはletで<br>中身が変わらないものはconstで変数宣言する。</p>
+        <p>ES5</p>
+<pre>
+<code class="javascript">
+  var test = 'テスト';
+  for( var count = 0; count < 10; count++ ){
+    console.log(test+count);
+  }
+</code>
+</pre>
+        <p>ES2015</p>
+<pre>
+<code class="javascript">
+  // こちらは定数（固定値）のためconstを使う
+  const test = 'テスト';
+  // こちらは変数の値が変わるのでletを使う
+  for( let count = 0; count < 10; count++ ){
+    console.log(test+count);
+  }
+</code>
+</pre>
+        <h3>アロー関数</h3>
+        <p>ES5</p>
+<pre>
+<code class="javascript">
+  var test = function(){
+    console.log('test');
+  }
+  test();
+</code>
+</pre>
+        <p>ES2015</p>
+<pre>
+<code class="javascript">
+  const test = () => {
+    console.log('test');
+  }
+  test();
+</code>
+</pre>
+        <h3>テンプレート文字列(文字列の結合)</h3>
+        <p>ES5</p>
+<pre>
+<code class="javascript">
+  var sei = '鈴木';
+  var mei = '一郎';
+  console.log('私の名前は'+sei+mei+'です。');
+</code>
+</pre>
+        <p>ES2015</p>
+<pre>
+<code class="javascript">
+  const sei = '鈴木';
+  const mei = '一郎';
+  // 'シングルクォート'や"ダブルクォート"ではなく`バッククォート`を使う
+  console.log(`私の名前は${sei}${mei}です。`);
+</code>
+</pre>
+
+    </li>
+    <li>
+      <h2>各ブラウザの対応状況</h2>
+      <p>Chrome、FireFox、Safari、Edgeなどは基本的にES6以上に対応しているが、<br>
+IEはES5までしか対応していない。<br>
+<a href="http://kangax.github.io/compat-table/es6/" target="_blank">ES2015の各ブラウザでの対応状況がわかるサイト</a></p>
+<p>そのため最新の開発ではES2015で書きつつ<br>それをES5に自動的に直してくれる<a href="https://babeljs.io/repl" target="_blank">babel</a>という環境を使っている。</p>
+    </li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,377 @@
+{
+  "count":12,
+  "next":null,
+  "previous":null,
+  "results":[
+    {
+      "_class":"assessment",
+      "id":2781618,
+      "assessment_type":"multiple-choice",
+      "prompt":{
+        "answers":[
+          "<p><code>var dog1;</code> </p>",
+          "<p><code>var OneDog;</code> </p>",
+          "<p><code>var 1dog;</code> </p>",
+          "<p><code>var dogone;</code> </p>"
+        ],
+        "question":"<p>Which variable is an illegal variable name?</p>",
+        "relatedLectureIds":[
+          "5646254"
+        ],
+        "feedbacks":[
+          "",
+          "",
+          "A variable name can not start with a number.",
+          ""
+        ]
+      },
+      "correct_response":[
+        "c"
+      ],
+      "section":"",
+      "question_plain":"Which variable is an illegal variable name?",
+      "related_lectures":[
+        {
+          "_class":"lecture",
+          "id":5646254,
+          "title":"Variables",
+          "created":"2016-08-29T18:22:22Z",
+          "asset":{
+            "_class":"asset",
+            "id":6683318,
+            "asset_type":"Video",
+            "title":"JavaScript the Basics - Variables No Music.mp4",
+            "created":"2016-08-29T18:25:25Z"
+          },
+          "object_index":2,
+          "url":"/course/javascript-the-basics-for-beginners/learn/lecture/5646254"
+        }
+      ]
+    },
+    {
+      "_class":"assessment",
+      "id":2781640,
+      "assessment_type":"multiple-choice",
+      "prompt":{
+        "question":"<p>Which of the following variable is named with camelCase?</p>",
+        "feedbacks":[
+          "This is an example of snake case.",
+          "Camel case involves having the first letter of each word capitalized except for the first word.",
+          "This is an example of pascal case.",
+          "This is an example of kebab case."
+        ],
+        "relatedLectureIds":"",
+        "answers":[
+          "<p>var games_won;</p>",
+          "<p>var gamesWon;</p>",
+          "<p>var GamesWon;</p>",
+          "<p>var games-won;</p>"
+        ]
+      },
+      "correct_response":[
+        "b"
+      ],
+      "section":"",
+      "question_plain":"Which of the following variable is named with camelCase?",
+      "related_lectures":[
+
+      ]
+    },
+    {
+      "_class":"assessment",
+      "id":2793386,
+      "assessment_type":"multiple-choice",
+      "prompt":{
+        "question":"<p>Both of the following choices are valid variable names. Which would typically be considered best practice?</p>",
+        "feedbacks":[
+          "",
+          ""
+        ],
+        "relatedLectureIds":"",
+        "answers":[
+          "<p>var daysInTheYear = 365;</p>",
+          "<p>var daysintheyear = 365;</p>"
+        ]
+      },
+      "correct_response":[
+        "a"
+      ],
+      "section":"",
+      "question_plain":"Both of the following choices are valid variable names. Which would typically be considered best practice?",
+      "related_lectures":[
+
+      ]
+    },
+    {
+      "_class":"assessment",
+      "id":2793390,
+      "assessment_type":"multiple-choice",
+      "prompt":{
+        "answers":[
+          "<p>var</p>",
+          "<p>x</p>",
+          "<p>=</p>",
+          "<p>25</p>"
+        ],
+        "feedbacks":[
+          "",
+          "",
+          "",
+          ""
+        ],
+        "relatedLectureIds":"",
+        "question":"<p>In the following line of code <code>var x = 25</code> which piece of code is the JavaScript variable name?</p>"
+      },
+      "correct_response":[
+        "b"
+      ],
+      "section":"",
+      "question_plain":"In the following line of code var x = 25 which piece of code is the JavaScript variable name?",
+      "related_lectures":[
+
+      ]
+    },
+    {
+      "_class":"assessment",
+      "id":2793388,
+      "assessment_type":"multiple-choice",
+      "prompt":{
+        "answers":[
+          "<p>var</p>",
+          "<p>x</p>",
+          "<p>=</p>",
+          "<p>25</p>"
+        ],
+        "relatedLectureIds":"",
+        "feedbacks":[
+          "",
+          "",
+          "",
+          ""
+        ],
+        "question":"<p>In the following line of code <code>var x = 25;</code> which piece of code is a JavaScript keyword?</p>"
+      },
+      "correct_response":[
+        "a"
+      ],
+      "section":"",
+      "question_plain":"In the following line of code var x = 25; which piece of code is a JavaScript keyword?",
+      "related_lectures":[
+
+      ]
+    },
+    {
+      "_class":"assessment",
+      "id":2793400,
+      "assessment_type":"multiple-choice",
+      "prompt":{
+        "question":"<p>In the following line of code <code>var x = 25</code> which piece of code is the value assigned to the JavaScript variable?</p>",
+        "feedbacks":[
+          "",
+          "",
+          "",
+          ""
+        ],
+        "relatedLectureIds":"",
+        "answers":[
+          "<p>var</p>",
+          "<p>x</p>",
+          "<p>=</p>",
+          "<p>25</p>"
+        ]
+      },
+      "correct_response":[
+        "d"
+      ],
+      "section":"",
+      "question_plain":"In the following line of code var x = 25 which piece of code is the value assigned to the JavaScript variable?",
+      "related_lectures":[
+
+      ]
+    },
+    {
+      "_class":"assessment",
+      "id":2793394,
+      "assessment_type":"multiple-choice",
+      "prompt":{
+        "question":"<p>In the following line of code <code>var x = 25</code> which piece of code is the assignment operator?</p>",
+        "feedbacks":[
+          "",
+          "",
+          "",
+          ""
+        ],
+        "relatedLectureIds":"",
+        "answers":[
+          "<p>var</p>",
+          "<p>x</p>",
+          "<p>=</p>",
+          "<p>25</p>"
+        ]
+      },
+      "correct_response":[
+        "c"
+      ],
+      "section":"",
+      "question_plain":"In the following line of code var x = 25 which piece of code is the assignment operator?",
+      "related_lectures":[
+
+      ]
+    },
+    {
+      "_class":"assessment",
+      "id":2793408,
+      "assessment_type":"multiple-choice",
+      "prompt":{
+        "answers":[
+          "<p>null</p>",
+          "<p>undefined</p>"
+        ],
+        "relatedLectureIds":"",
+        "feedbacks":[
+          "Until you have assigned a value to the variable the value of your variable is undefined.",
+          "Until you have assigned a value to the variable the value of your variable is undefined."
+        ],
+        "question":"<p>In the following line of code what is the value of cars:<br><code>var cars;</code> </p>"
+      },
+      "correct_response":[
+        "b"
+      ],
+      "section":"",
+      "question_plain":"In the following line of code what is the value of cars:var cars;",
+      "related_lectures":[
+
+      ]
+    },
+    {
+      "_class":"assessment",
+      "id":2793416,
+      "assessment_type":"multiple-choice",
+      "prompt":{
+        "answers":[
+          "<p>initialized</p>",
+          "<p>uninitialized</p>"
+        ],
+        "relatedLectureIds":"",
+        "feedbacks":[
+          "",
+          ""
+        ],
+        "question":"<p>Until a variable is assigned a value it is said to be _______ .</p>"
+      },
+      "correct_response":[
+        "b"
+      ],
+      "section":"",
+      "question_plain":"Until a variable is assigned a value it is said to be _______ .",
+      "related_lectures":[
+
+      ]
+    },
+    {
+      "_class":"assessment",
+      "id":2793426,
+      "assessment_type":"multiple-choice",
+      "prompt":{
+        "answers":[
+          "<p>boolean</p>",
+          "<p>null</p>",
+          "<p>undefined</p>",
+          "<p>string</p>",
+          "<p>symbol</p>",
+          "<p>object</p>",
+          "<p>number</p>"
+        ],
+        "feedbacks":[
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          ""
+        ],
+        "relatedLectureIds":"",
+        "question":"<p>In the following line of code what data type is the value assigned to x:<br><code>var x = 25;</code> </p>"
+      },
+      "correct_response":[
+        "g"
+      ],
+      "section":"",
+      "question_plain":"In the following line of code what data type is the value assigned to x:var x = 25;",
+      "related_lectures":[
+
+      ]
+    },
+    {
+      "_class":"assessment",
+      "id":2793434,
+      "assessment_type":"multiple-choice",
+      "prompt":{
+        "answers":[
+          "<p>boolean</p>",
+          "<p>null</p>",
+          "<p>undefined</p>",
+          "<p>number</p>",
+          "<p>string</p>",
+          "<p>symbol</p>",
+          "<p>object</p>"
+        ],
+        "relatedLectureIds":"",
+        "feedbacks":[
+          "",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'"
+        ],
+        "question":"<p>In the following line of code what data type is the value assigned to x:<br><code>var x = false;</code> </p>"
+      },
+      "correct_response":[
+        "a"
+      ],
+      "section":"",
+      "question_plain":"In the following line of code what data type is the value assigned to x:var x = false;",
+      "related_lectures":[
+
+      ]
+    },
+    {
+      "_class":"assessment",
+      "id":2793440,
+      "assessment_type":"multiple-choice",
+      "prompt":{
+        "question":"<p>In the following line of code what data type is the value assigned to x:<br><code>var x = 'hello world';</code> </p>",
+        "feedbacks":[
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "",
+          "hint: use 'typeof' operator to find the data type of of 'x'",
+          "hint: use 'typeof' operator to find the data type of of 'x'"
+        ],
+        "relatedLectureIds":"",
+        "answers":[
+          "<p>boolean</p>",
+          "<p>null</p>",
+          "<p>undefined</p>",
+          "<p>number</p>",
+          "<p>string</p>",
+          "<p>symbol</p>",
+          "<p>object</p>"
+        ]
+      },
+      "correct_response":[
+        "e"
+      ],
+      "section":"",
+      "question_plain":"In the following line of code what data type is the value assigned to x:var x = 'hello world';",
+      "related_lectures":[
+
+      ]
+    }
+  ]
+}
